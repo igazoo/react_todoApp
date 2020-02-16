@@ -1,0 +1,69 @@
+html, body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+.wrap{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.side-area{
+  width: 300px;
+  height: 100%;
+  background: #e2e2e2;
+}
+
+.main-area{
+  width: calc(100% - 300px);
+  height: 100%;
+  position: relative;
+}
+
+.main-area .list-area{
+  width: 100%;
+  height: calc(100% - 60px - 30px);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.main-area .list-area .todo-list {
+  margin: 0;
+  padding: 0;
+
+}
+.main-area .list-area .todo-list .todo-list-item{
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  list-style: none;
+}
+
+.header{
+
+  width: 100%;
+  height: 60px;
+  padding: 20px;
+  box-sizing:border-box;
+  background: #dddddd;
+}
+
+.footer{
+  height: 30px;
+  background: #dddddd;
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  bottom: 0;
+  left: 0;
+}
