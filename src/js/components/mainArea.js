@@ -1,29 +1,48 @@
 import React from 'react';
 import Header from './header';
 import Footer from './footer';
-
+import ListItem from './ListItem';
 
 export default class MainArea extends React.Component{
   constructor(props){
     super(props);
 
     this.state = {
-      todos: [
-        {label: "Todo1"},
-        {label: "Todo2"},
-        {label: 'Todo3'},
-        {label: 'Todo4'},
-        {label: 'Todo5'},
-      ]
+      todoInputValue: ""
     }
   }
+  onChangeTodoInput(event){
+    this.setState({todoInputValue: event.target.value});
+  }
+
+  onClickAddButton(event){
+    this.setState({todoInputValue: ""});
+    this.props.onAddTodo(this.state.todoInputValue);
+  }
+
+  onCompleteTodo(id){
+    this.props.onCompleteTodo(id);
+  }
+
+  onDeleteTodo(id){
+    this.props.onDeleteTodo(id);
+  }
+
+
 
   renderTodoItems(){
     let todoItemDom =[];
 
-    for(var i =0; i < this.state.todos.length; i++){
-      let todoIem = <li className="todo-list-item" key={"item-" +i}>{this.state.todos[i].label}</li>
-      todoItemDom.push(todoIem);
+    for(var i =0; i < this.props.todoList.length; i++){
+      if(!this.props.todoList[i].completed){
+        let todoItem = <ListItem
+          key ={"item-" +i}
+          data = {this.props.todoList[i]}
+          completeTodo={this.onCompleteTodo.bind(this)}
+          deleteTodo = {this.onDeleteTodo.bind(this)}
+          />
+        todoItemDom.push(todoItem);
+      }
     }
     return todoItemDom;
   }
@@ -32,13 +51,20 @@ export default class MainArea extends React.Component{
 
     return (
       <div className="main-area">
-      <Header />
-      <main className="list-area">
-      <ul className ="todo-list">
-      {this.renderTodoItems()}
-      </ul>
-      </main>
-      <Footer />
+        <Header />
+        <main className="list-area">
+          <div className="todo-input-area">
+            <input className ="todo-input"type ="text" placeholder="Todoを追加"
+              value ={this.state.todoInputValue}
+              onChange={this.onChangeTodoInput.bind(this)}/>
+            <button className="add-button"
+              onClick={this.onClickAddButton.bind(this)} >登録</button>
+          </div>
+          <ul className ="todo-list">
+            {this.renderTodoItems()}
+          </ul>
+        </main>
+        <Footer />
       </div>
     )
   }

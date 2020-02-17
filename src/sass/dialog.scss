@@ -1,0 +1,81 @@
+.modal-layer{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 99;
+
+  .dialog{
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top:200px;
+    left:calc(50% - 200px);
+    width: 400px;
+
+    .dialog-header{
+      background: #ededed;
+      padding: 10px 20px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 5px 5px 0 0 ;
+
+    }
+
+    .dialog-content{
+      padding: 20px;
+      .group-text-input{
+        padding: 5px;
+        width: 240px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+      }
+    }
+    .dialog-footer{
+      border-top: 1px solid #ccc;
+      padding: 10px 20px;
+      overflow: hidden;
+
+      .cancel-button{
+        float: left;
+        width: 80px;
+        border: 0;
+        height: 30px;
+        background: #eee;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 5px;
+        font-size: 0.8rem
+      }
+      .save-button{
+        font-size: 0.8rem;
+        float: right;
+        width: 80px;
+        border: 0;
+        height: 30px;
+        background: #4466ff;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 5px;
+        color: #fff;
+      }
+
+      .delete-button{
+        font-size: 0.8rem;
+        float: right;
+        width: 80px;
+        border: 0;
+        height: 30px;
+        background: #eee;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 5px;
+      
+        margin-right: 10px;
+      }
+    }
+  }
+}

@@ -5,6 +5,8 @@ var browserSync   = require('browser-sync').create();
 var webpack       = require('webpack');
 var webpackStream = require('webpack-stream');
 var webpackConfig = require('./webpack.config.js');
+var sass = require('gulp-sass');
+
 
 gulp.task('compile', function () {
   return gulp.src([
@@ -22,6 +24,16 @@ gulp.task('compile', function () {
   .pipe(gulp.dest('js'))
 });
 
+gulp.task('sass',function(){
+  return gulp.src('./src/sass/**/*.scss')
+  .pipe(plumber({
+    errorHandler: notify.onError("Error: <%= error.message %>")
+
+  }))
+  .pipe(sass())
+  .pipe(gulp.dest('./css'));
+});
+
 // Static server
 gulp.task('browser-sync', function(done) {
    browserSync.init({
@@ -31,14 +43,16 @@ gulp.task('browser-sync', function(done) {
   });
   done();
 });
-
 gulp.task('watch', function () {
     // Callback mode, useful if any plugin in the pipeline depends on the `end`/`flush` event
     gulp.watch(['./src/js/**/**.js'], gulp.task('compile'));
+    gulp.watch(['./src/sass/**/**.sass'],function(){
+      gulp.start(['sass']);
+    });
     gulp.watch(['./**/*.html', './js/**/*.js','./css/**/**.css'], function (done) {
         browserSync.reload();
         done();
     });
 });
 
-gulp.task('default',  gulp.parallel('compile','browser-sync','watch'));
+gulp.task('default',  gulp.parallel('compile','sass','browser-sync','watch'));

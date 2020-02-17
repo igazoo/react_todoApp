@@ -1,63 +1,158 @@
-html, body{
+.modal-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99; }
+  .modal-layer .dialog {
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 200px;
+    left: calc(50% - 200px);
+    width: 400px; }
+    .modal-layer .dialog .dialog-header {
+      background: #ededed;
+      padding: 10px 20px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 5px 5px 0 0; }
+    .modal-layer .dialog .dialog-content {
+      padding: 20px; }
+      .modal-layer .dialog .dialog-content .group-text-input {
+        padding: 5px;
+        width: 240px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem; }
+    .modal-layer .dialog .dialog-footer {
+      border-top: 1px solid #ccc;
+      padding: 10px 20px;
+      overflow: hidden; }
+      .modal-layer .dialog .dialog-footer .cancel-button {
+        float: left;
+        width: 80px;
+        border: 0;
+        height: 30px;
+        background: #eee;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 5px;
+        font-size: 0.8rem; }
+      .modal-layer .dialog .dialog-footer .save-button {
+        font-size: 0.8rem;
+        float: right;
+        width: 80px;
+        border: 0;
+        height: 30px;
+        background: #4466ff;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 5px;
+        color: #fff; }
+      .modal-layer .dialog .dialog-footer .delete-button {
+        font-size: 0.8rem;
+        float: right;
+        width: 80px;
+        border: 0;
+        height: 30px;
+        background: #eee;
+        cursor: pointer;
+        height: 30px;
+        border-radius: 5px;
+        margin-right: 10px; }
+
+* {
   padding: 0;
   margin: 0;
-}
+  outline: none; }
 
-#root{
+html, body {
+  width: 100%;
+  height: 100%; }
+
+#root {
+  width: 100%;
+  height: 100%; }
+
+li {
+  list-style: none; }
+
+.wrap {
   width: 100%;
   height: 100%;
-}
+  display: flex; }
 
-.wrap{
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.side-area{
+.side-area {
   width: 300px;
   height: 100%;
   background: #e2e2e2;
-}
+  position: relative; }
 
-.main-area{
+.main-area {
   width: calc(100% - 300px);
   height: 100%;
-  position: relative;
-}
+  position: relative; }
 
-.main-area .list-area{
+.main-area .list-area {
   width: 100%;
   height: calc(100% - 60px - 30px);
   box-sizing: border-box;
-  padding: 20px;
-}
+  padding: 20px; }
 
 .main-area .list-area .todo-list {
   margin: 0;
-  padding: 0;
+  padding: 0; }
 
-}
-.main-area .list-area .todo-list .todo-list-item{
+.main-area .list-area .todo-list .todo-list-item {
   padding: 10px 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 5px;
-  list-style: none;
-}
+  list-style: none; }
 
-.header{
+.main-area .list-area .todo-list .todo-list-item input[type="checkbox"] {
+  margin-right: 10px; }
 
+.main-area .list-area .todo-list .todo-list-item .delete-button {
+  border: none;
+  font-size: 1.0rem;
+  float: right;
+  cursor: pointer;
+  outline: none; }
+
+.main-area .list-area .todo-input-area {
+  margin-bottom: 20px;
+  overflow: hidden; }
+
+.main-area .list-area .todo-input-area .todo-input {
+  border: 1px solid #666666;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  float: left;
+  width: calc(100% - 120px); }
+
+.main-area .list-area .todo-input-area .add-button {
+  border: none;
+  border-radius: 5px;
+  background: #3366ff;
+  color: #fff;
+  width: 60px;
+  height: 43px;
+  font-size: 15px;
+  float: right; }
+
+.header {
   width: 100%;
   height: 60px;
   padding: 20px;
-  box-sizing:border-box;
-  background: #dddddd;
-}
+  box-sizing: border-box;
+  background: #dddddd; }
 
-.footer{
+.footer {
   height: 30px;
   background: #dddddd;
   position: absolute;
@@ -65,5 +160,37 @@ html, body{
   width: 100%;
   padding: 10px;
   bottom: 0;
-  left: 0;
-}
+  left: 0; }
+
+.group-list li {
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  cursor: pointer; }
+  .group-list li .group-edit-button {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    float: right;
+    height: 25px;
+    width: 40px;
+    margin: 10px 10px 0 0; }
+  .group-list li span {
+    display: block;
+    padding: 10px 20px;
+    width: 210px;
+    float: left; }
+
+.side-area-footer {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  width: 100%; }
+  .side-area-footer .add-group-button {
+    width: calc(100% - 40px);
+    height: 40px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background: skyblue; }
