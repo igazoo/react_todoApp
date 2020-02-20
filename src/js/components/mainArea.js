@@ -12,7 +12,8 @@ export default class MainArea extends React.Component{
     }
   }
   onChangeTodoInput(event){
-    this.setState({todoInputValue: event.target.value});
+   this.setState({todoInputValue: event.target.value});
+
   }
 
   onClickAddButton(event){
@@ -51,7 +52,9 @@ export default class MainArea extends React.Component{
 
     return (
       <div className="main-area">
-        <Header />
+        <Header
+          groupName={this.props.groupName}
+           />
         <main className="list-area">
           <div className="todo-input-area">
             <input className ="todo-input"type ="text" placeholder="Todoを追加"
