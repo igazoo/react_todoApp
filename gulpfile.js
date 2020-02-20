@@ -7,6 +7,14 @@ var webpackStream = require('webpack-stream');
 var webpackConfig = require('./webpack.config.js');
 var sass = require('gulp-sass');
 
+gulp.task('webserver', () => {
+    connect.server({
+        root: config.dest,
+        livereload: true,
+        host: process.env.HOST || 'localhost',
+        port: process.env.PORT || 8000
+    });
+});
 gulp.task('compile', function () {
   return gulp.src([
   './src/js/index.js',
