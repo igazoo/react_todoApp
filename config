@@ -1,0 +1,7 @@
+Host heroku.com
+ User git
+ port 22
+ Hostname heroku.com
+ IdentityFile ~/.ssh/heroku_rsa
+ TCPKeepAlive yes
+ IdentitiesOnly yes
