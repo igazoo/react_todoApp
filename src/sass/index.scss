@@ -59,6 +59,7 @@ li{
 }
 .main-area .list-area .todo-list .todo-list-item input[type="checkbox"]{
   margin-right: 10px;
+  cursor: pointer;
 }
 .main-area .list-area .todo-list .todo-list-item .delete-button{
   border: none;
@@ -86,12 +87,13 @@ li{
 .main-area .list-area .todo-input-area .add-button{
   border: none;
   border-radius: 5px;
-  background: #3366ff;
+  background: skyblue;
   color: #fff;
   width: 60px;
   height: 43px;
   font-size: 15px;
   float: right;
+  cursor: pointer;
 }
 .header{
 
@@ -115,7 +117,7 @@ li{
 
 .group-list{
   li{
-  
+
     border-bottom: 1px solid #ccc;
     overflow: hidden;
     cursor: pointer;

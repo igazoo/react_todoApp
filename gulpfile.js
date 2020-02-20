@@ -7,7 +7,6 @@ var webpackStream = require('webpack-stream');
 var webpackConfig = require('./webpack.config.js');
 var sass = require('gulp-sass');
 
-
 gulp.task('compile', function () {
   return gulp.src([
   './src/js/index.js',
