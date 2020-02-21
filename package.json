@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app",
-    "postinstall": "gulp default"
+    "start": "nodemon app.js",
+    "heroku-postbuild": "gulp"
   },
   "author": "",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
+    "i": "^0.3.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.2.0",
